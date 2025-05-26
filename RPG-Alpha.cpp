@@ -1,5 +1,3 @@
-// RPG idk how to call it rn
-
 #include<iostream>
 
 
@@ -19,8 +17,8 @@ class Player{
         
         this->name = name;
         this->hp = 100;
-        this->mp = 10;
-        this->attack = 15;
+        this->mp = 1;
+        this->attack = 10;
     }
 
     bool isAlive(){
@@ -124,6 +122,11 @@ class Game{
     }
 
 
+    void introArt() {
+        std::cout << "============================\n";
+        std::cout << " ДОБРО ПОЖАЛОВАТЬ В RPG v0.1   \n";
+        std::cout << "============================\n\n";
+    }
 
     void menu(){
         std::cout<<"1. Искать приключений на свой меч!\n";
@@ -139,6 +142,7 @@ class Game{
             return;
         }
 
+
         std::cout<<"\n===========================================\n";
 
         std::cout<<"Ваша статистика:\n";
@@ -152,6 +156,8 @@ class Game{
         
         }
 
+    
+
 
 
 };
@@ -161,10 +167,40 @@ class Game{
 int main(){
     
     Game game;
+    game.introArt();
     game.getName();
     game.greet();
     game.getClass();
+    int op;
+
+    do{
+
+    std::cin>>op;
     game.menu();
+
+    switch(op){
+        case 1:
+        std::cout<<"Я коносубу смотрю мне не до этого\n";
+
+        break;
+
+        case 2:
+        game.showStats();
+
+        break;
+
+        case 3:
+        std::cout<<"Уже уходишь?...Ты меня разочаровал...Приходи еще!\n";
+
+        break;
+
+        default:
+        std::cout<<"Нет такой команды!\n";
+    }
+
+    }while(op !=3);
+
+
 
     return 0;
 }
